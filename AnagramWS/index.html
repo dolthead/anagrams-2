@@ -1,0 +1,26 @@
+<html>
+<head>
+  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+  <script>
+  //when page is loaded execute the following function
+  $(document).ready(function(){
+    //# look for ID
+      $("#submit").click(function(){
+        //javascript map |   get value of user input
+          $.ajax({url: "http://127.0.0.1:8081/anagram/" + $('#user_input').val() , success: function(result){
+            //result from the REST API, put the result in the div
+              $("#result").text(JSON.stringify(result));
+              
+          }});
+      });
+  });
+  </script>
+</head>
+   <body>
+         User Input: <input type = "text" id = "user_input">  <br>
+         <button id = "submit"> Submit </button>
+
+         <div id = "result">
+        </div>
+   </body>
+</html>
