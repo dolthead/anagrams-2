@@ -4,8 +4,8 @@ var express = require('express');
 var app = express();
 var dictionary = require('./createdictionary');
 var dictonaryArray = dictionary();
-var permutations = require('./permutations');
-var permutationArray = permutations();
+/* https://www.npmjs.com/package/permutation */
+var permutations = require('permutation');
 var compare = require('./compareArrays');
 var compareArray = compare();
 
@@ -18,8 +18,7 @@ app.get('/jquery-3.1.1.min.js', function (req, res) {
 })
 app.get('/anagram/:user_input', function (req, res) {
    // Prepare output in JSON format
-
-   var userInputPerm = permutationArray(user_input);
+   var userInputPerm = permutations(user_input);
    var response = compareArray(userInputPerm, dictonaryArray)
   //  response = {
    //

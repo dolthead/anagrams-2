@@ -1,5 +1,5 @@
 
-function(perms, dic){
+function compareArray(perms, dic){
   var matchArray = [];
 
   for (var i = 0; i < perms.length; i++) {
@@ -10,4 +10,4 @@ function(perms, dic){
   return matchArray;
 }
 
-module.exports = matchArray;
+module.exports = compareArray;
