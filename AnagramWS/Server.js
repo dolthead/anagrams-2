@@ -7,7 +7,7 @@ var dictonaryArray = dictionary();
 /* https://www.npmjs.com/package/permutation */
 var permutations = require('permutation');
 var compare = require('./compareArrays');
-var compareArray = compare();
+//var compareArray = compare();
 
 app.use(express.static('public'));
 app.get('/index.html', function (req, res) {
@@ -18,8 +18,10 @@ app.get('/jquery-3.1.1.min.js', function (req, res) {
 })
 app.get('/anagram/:user_input', function (req, res) {
    // Prepare output in JSON format
-   var userInputPerm = permutations(user_input);
-   var response = compareArray(userInputPerm, dictonaryArray)
+   var userInputPerm = permutations(req.params.user_input, {unique: true});
+   //console.log(userInputPerm);
+   var response = compare(userInputPerm, dictonaryArray);
+  // console.log(dictonaryArray);
   //  response = {
    //
   //     user_input:req.params.user_input,
@@ -28,7 +30,7 @@ app.get('/anagram/:user_input', function (req, res) {
    res.status(200).json(response);
 })
 
-var server = app.listen(8081, function () {
+var server = app.listen(3000, function () {
    var host = server.address().address
    var port = server.address().port
    console.log("Example app listening at http://%s:%s", host, port)

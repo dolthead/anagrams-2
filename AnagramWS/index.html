@@ -7,10 +7,10 @@
     //# look for ID
       $("#submit").click(function(){
         //javascript map |   get value of user input
-          $.ajax({url: "http://127.0.0.1:8081/anagram/" + $('#user_input').val() , success: function(result){
+          $.ajax({url: "http://127.0.0.1:3000/anagram/" + $('#user_input').val() , success: function(result){
             //result from the REST API, put the result in the div
               $("#result").text(JSON.stringify(result));
-              
+
           }});
       });
   });

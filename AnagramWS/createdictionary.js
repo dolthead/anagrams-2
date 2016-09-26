@@ -13,3 +13,4 @@ function arrayDictionary() {
 }
 
 module.exports = arrayDictionary;
+//console.log(arrayDictionary());
