@@ -1,3 +1,5 @@
+
+\\testing
 var expect = require('chai').expect;
 var compare = require('compareArrays');
 var arrayPerms = [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba']
